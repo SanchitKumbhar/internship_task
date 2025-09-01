@@ -85,8 +85,8 @@
                     </button>
                      <div class="relative">
                         <button id="profile-button" class="flex items-center space-x-2">
-                            <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Profile" class="w-9 h-9 rounded-full">
-                            <span class="hidden sm:inline text-sm font-medium text-slate-700">{{user}}</span>
+                            <img src="{{ request.user.profile_picture.url }}" alt="Profile" class="w-9 h-9 rounded-full">
+                            <span class="hidden sm:inline text-sm font-medium text-slate-700">{{ user }}</span>
                             <svg class="w-4 h-4 text-slate-500 hidden sm:inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
