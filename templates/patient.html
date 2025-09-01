@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+        .sidebar-link.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-100 antialiased text-slate-800">
+
+    <div class="flex h-screen overflow-hidden">
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-slate-200 transform -translate-x-full md:relative md:translate-x-0 transition-transform duration-300 ease-in-out">
+            <div class="h-16 flex items-center justify-center px-4 border-b border-slate-200">
+                <h1 class="text-xl font-bold text-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 inline-block mr-2 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+                    </svg>
+                    CareClinic
+                </h1>
+            </div>
+            <nav class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-2">
+                <a href="#" class="sidebar-link active flex items-center px-4 py-2.5 text-sm font-medium rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+                    Dashboard
+                </a>
+                <a href="#" class="sidebar-link flex items-center px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-200 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    Appointments
+                </a>
+                <a href="#" class="sidebar-link flex items-center px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-200 rounded-lg transition-colors duration-200">
+                   <svg class="w-5 h-5 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
+                    Medical Records
+                </a>
+                <a href="#" class="sidebar-link flex items-center px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-200 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                    Lab Results
+                </a>
+                <a href="#" class="sidebar-link flex items-center px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-200 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    Account Settings
+                </a>
+            </nav>
+        </aside>
+
+        <div class="flex-1 flex flex-col overflow-hidden md:ml-64">
+            <header class="h-16 flex items-center justify-between px-6 bg-white border-b border-slate-200">
+                <button id="menu-btn" class="md:hidden text-slate-500 hover:text-slate-700">
+                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                </button>
+                <div class="flex items-center">
+                    <div id="dateTime" class="text-sm text-slate-600">
+                        <span id="date"></span>, <span id="time"></span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 rounded-full text-slate-500 hover:bg-slate-200 hover:text-slate-700">
+                         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+                    </button>
+                     <div class="relative">
+                        <button id="profile-button" class="flex items-center space-x-2">
+                            <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Profile" class="w-9 h-9 rounded-full">
+                            <span class="hidden sm:inline text-sm font-medium text-slate-700">{{user}}</span>
+                            <svg class="w-4 h-4 text-slate-500 hidden sm:inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="profile-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20 hidden">
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">My Profile</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-y-auto custom-scrollbar p-6">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6">Hello, {{ user }}</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div class="bg-white p-5 rounded-xl shadow-md">
+                        <p class="text-sm font-medium text-slate-500">BMI</p>
+                        <p class="text-3xl font-bold text-slate-800">22.5</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-md">
+                        <p class="text-sm font-medium text-slate-500">Last Appointment</p>
+                        <p class="text-lg font-bold text-slate-800">25 Aug 2025</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-md">
+                        <p class="text-sm font-medium text-slate-500">Next Appointment</p>
+                        <p class="text-lg font-bold text-blue-600">10 Sep 2025</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-md">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-semibold">Upcoming Appointments</h3>
+                            <a href="#" class="text-sm font-medium text-blue-600 hover:text-blue-800">View All</a>
+                        </div>
+                        <div class="space-y-4" id="appointment-list">
+                            </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-semibold">Recent Lab Results</h3>
+                            <a href="#" class="text-sm font-medium text-blue-600 hover:text-blue-800">View All</a>
+                        </div>
+                        <div class="space-y-4" id="lab-results">
+                             </div>
+                    </div>
+
+                    <div class="lg:col-span-3 bg-white p-6 rounded-xl shadow-md">
+                         <h3 class="text-lg font-semibold mb-4">Health Education</h3>
+                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div id="articles-list"></div>
+                         </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // --- MOCK DATA ---
+        const appointments = [
+            { date: "10 Sep 2025", time: "10:30 AM", doctor: "Dr. Anya Sharma", reason: "Follow-up", status: "Scheduled" },
+            { date: "20 Sep 2025", time: "02:00 PM", doctor: "Dr. Sunita Gupta", reason: "Dermatology", status: "Scheduled" },
+            { date: "01 Oct 2025", time: "09:00 AM", doctor: "Dr. Mohan Verma", reason: "Annual Checkup", status: "Scheduled" }
+        ];
+
+        const labResults = [
+            { date: "28 Aug 2025", test: "Complete Blood Count", status: "Available", link: "#" },
+            { date: "15 Jul 2025", test: "Lipid Panel", status: "Available", link: "#" },
+            { date: "03 Jun 2025", test: "Vitamin D Level", status: "Available", link: "#" }
+        ];
+        
+        const articles = [
+            { title: "Managing your blood pressure", image: "https://images.unsplash.com/photo-1576091160550-21735c026794?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Ymxvb2QlMjBwcmVzc3VyZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60", link: "#" },
+            { title: "Healthy eating tips for diabetics", image: "https://images.unsplash.com/photo-1610441295240-a1921f64f8a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZGlhYmV0ZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60", link: "#" },
+            { title: "Understanding your lab reports", image: "https://images.unsplash.com/photo-1588697194129-9e8c757c2c15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFicmF0b3J5JTIwcmVwb3J0fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60", link: "#" },
+        ];
+
+        // --- RENDER FUNCTIONS ---
+        function renderAppointments() {
+            const list = document.getElementById('appointment-list');
+            list.innerHTML = appointments.map(apt => `
+                <div class="flex items-center p-4 bg-slate-50 rounded-lg">
+                    <svg class="w-6 h-6 text-blue-500 mr-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    <div class="flex-1">
+                        <p class="font-semibold text-sm">${apt.date} at ${apt.time}</p>
+                        <p class="text-xs text-slate-500">with ${apt.doctor}</p>
+                    </div>
+                    <span class="text-xs font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-700">${apt.status}</span>
+                </div>
+            `).join('');
+        }
+
+        function renderLabResults() {
+            const list = document.getElementById('lab-results');
+            list.innerHTML = labResults.map(result => `
+                <a href="${result.link}" class="flex items-center p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors duration-200">
+                    <svg class="w-6 h-6 text-green-500 mr-4 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                    <div class="flex-1">
+                        <p class="font-semibold text-sm">${result.test}</p>
+                        <p class="text-xs text-slate-500">Results from ${result.date}</p>
+                    </div>
+                    <span class="text-sm font-medium text-blue-600">View</span>
+                </a>
+            `).join('');
+        }
+
+        function renderArticles() {
+            const list = document.getElementById('articles-list');
+            list.innerHTML = articles.map(article => `
+                <a href="${article.link}" class="block overflow-hidden rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
+                    <img src="${article.image}" alt="${article.title}" class="w-full h-32 object-cover">
+                    <div class="p-4 bg-white">
+                        <h4 class="font-semibold text-sm">${article.title}</h4>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // --- GENERAL JS FUNCTIONS ---
+        function updateDateTime() {
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('date').textContent = now.toLocaleDateString('en-IN', dateOptions);
+            const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+            document.getElementById('time').textContent = now.toLocaleTimeString('en-IN', timeOptions);
+        }
+
+        // --- EVENT LISTENERS & INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderAppointments();
+            renderLabResults();
+            renderArticles();
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
+
+            // Mobile menu toggle
+            const menuBtn = document.getElementById('menu-btn');
+            const sidebar = document.getElementById('sidebar');
+            menuBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('-translate-x-full');
+            });
+            
+            // Profile dropdown toggle
+            const profileButton = document.getElementById('profile-button');
+            const profileDropdown = document.getElementById('profile-dropdown');
+            profileButton.addEventListener('click', () => {
+                profileDropdown.classList.toggle('hidden');
+            });
+
+            // Close dropdown if clicked outside
+            document.addEventListener('click', (event) => {
+                if (!profileButton.contains(event.target) && !profileDropdown.contains(event.target)) {
+                    profileDropdown.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -68,7 +68,12 @@ def process_login(request):
 
 def render_dashboard(request):
     # print(request.user.profile_picture.url)
-    return render(request, 'dashboard.html', {'user': request.user.username})
+    if request.user.user_type == "Patient":
+        print(request.user.username)
+        return render(request, 'patient.html', {'user': request.user.username})
+    else:
+        return render(request, 'dashboard.html', {'user': request.user.username})
+
 
 def logout_process(request):
     logout(request)
