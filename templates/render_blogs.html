@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Health Compass</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #2563eb; /* medical blue */
+      --accent-color: #f6ad55; /* golden yellow accent */
+      --bg-color: #121826;     /* dark background */
+      --text-light: #e2e8f0;
+      --text-muted: #94a3b8;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .post-card {
+      background: #1e293b;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .post-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(246, 173, 85, 0.2);
+    }
+
+    .post-card img {
+      transition: transform 0.4s ease;
+    }
+
+    .post-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .category-header {
+      border-left: 4px solid var(--accent-color);
+      padding-left: 12px;
+    }
+
+    .newsletter-box {
+      background: #1e293b;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .btn-accent {
+      background: var(--accent-color);
+      color: #1a202c;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-accent:hover {
+      background: #fbd38d;
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body class="px-4 md:px-12">
+  <div class="max-w-7xl mx-auto">
+    
+    <!-- Header (no background color) -->
+    <header class="text-center mb-16 py-12">
+      <h1 class="text-5xl md:text-6xl font-bold text-white leading-tight">
+        The Health Compass
+      </h1>
+      <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
+        Trusted medical knowledge, wellness tips, and healthcare insights to guide you towards a healthier tomorrow.
+      </p>
+    </header>
+
+    <!-- Blog Posts -->
+    <main id="blog-container">
+      {% for category, category_posts in posts.items %}
+        <div class="mb-20">
+          <h2 class="text-2xl md:text-3xl font-semibold text-white mb-8 category-header">
+            {{ category }}
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {% for post in category_posts %}
+              <div class="post-card rounded-xl overflow-hidden shadow-md">
+                <div class="overflow-hidden">
+                  <img src="/media/{{ post.image }}" alt="{{ post.title }}" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/800x600/1e293b/cbd5e1?text=No+Image';">
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-semibold text-white mb-3">{{ post.title }}</h3>
+                  <p class="text-gray-400 text-sm">{{ post.summary|truncatewords:18 }}</p>
+                  <a href="#" class="mt-4 inline-block btn-accent px-5 py-2 rounded-full shadow-md">Read More →</a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </main>
+
+    <!-- Newsletter -->
+    <section class="mt-20 text-center py-12 px-6 rounded-2xl newsletter-box shadow-lg">
+      <h3 class="text-2xl md:text-3xl font-semibold text-white">Stay Updated with Medical Insights</h3>
+      <p class="mt-2 text-gray-400 max-w-md mx-auto">
+        Subscribe for health tips, medical breakthroughs, and wellness updates delivered directly to your inbox.
+      </p>
+      <button class="mt-6 px-8 py-3 rounded-full btn-accent shadow-md">Subscribe Now</button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-20 py-8 text-center text-gray-500 text-sm border-t border-gray-700">
+      <p>&copy; 2025 The Health Compass. All rights reserved.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
